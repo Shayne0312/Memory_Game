@@ -1,3 +1,4 @@
+/* Set the background image */
 body {
   background-image: url("background/neuron.jpg");
   background-repeat: no-repeat;
@@ -10,7 +11,8 @@ body {
   overflow: hidden;
   margin-top: -30px;
 }
- .header {
+ /* Style the header */
+.header {
   font-family: 'domine', 'serif';
   text-align: center;
   margin: 0;
@@ -18,7 +20,8 @@ body {
   color: #1155e6;
   text-shadow: white 0px 2px 5px;
 }
- .grid-container {
+ /* Style the grid container */
+.grid-container {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(4, minmax(0, 1fr));
@@ -28,7 +31,8 @@ body {
   height: 80vh;
   margin: 0 auto;
 }
- .grid-cell {
+ /* Style the grid cells */
+.grid-cell {
   background-color: rgb(211, 205, 205);
   padding: 10px;
   width: calc(80% - 20px);
@@ -45,16 +49,19 @@ body {
   align-items: center;
   box-sizing: border-box;
 }
- .grid-cell.flip {
+ /* Flip the grid cell */
+.grid-cell.flip {
   transform: rotateY(180deg);
 }
- .grid-cell img {
+ /* Style the image inside the grid cell */
+.grid-cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
- .front,
+ /* Style the front and back of the grid cell */
+.front,
 .back {
   position: absolute;
   top: 0;
@@ -65,14 +72,16 @@ body {
   backface-visibility: hidden;
   transition: transform 0.5s;
 }
- .front {
+ /* Flip the front and back of the grid cell */
+.front {
   transform: rotateY(0deg);
 }
  .back {
   transform: rotateY(180deg);
   object-fit: cover;
 }
- .start-button,
+ /* Style the start and reset buttons */
+.start-button,
 .reset-button {
   font-family: 'domine', 'serif';
   display: inline-block;
@@ -86,69 +95,70 @@ body {
   box-shadow: white 2px 2px 5px;
   transform: scale(1.0);
 }
- .start-button {
+ /* Style the start button */
+.start-button {
   margin-right: 10px;
 }
- .reset-button {
+ /* Style the reset button */
+.reset-button {
   margin-left: 10px;
 }
- .timer,
-#timer {
-  font-family: 'domine', 'serif';
-  border-radius: 10px 100px / 120px;
-  background-color: #1155e6;
-  font-size: 24px;
-  color: white;
-  animation: pulsing-glow 1s infinite;
-}
- .score-board,
+ /* Style the timer and score board */
+.timer,
+#timer,
+.score-board,
 #highscore {
   font-family: 'domine', 'serif';
   border-radius: 10px 100px / 120px;
   background-color: #1155e6;
-  color: white;
   font-size: 24px;
+  color: white;
   animation: pulsing-glow 1s infinite;
 }
- .timer {
+ /* Position the timer and score board */
+.timer {
   position: absolute;
-  top: calc(21% - 40px);
+  top: calc(21% - 70px);
   right: calc(75% - -30px);
 }
  .score-board {
   position: absolute;
-  top: calc(21% - 40px);
+  top: calc(21% - 70px);
   right: 16%;
 }
- .start-button {
+ /* Position the start and reset buttons */
+.start-button {
   position: absolute;
-  top: calc(21% - 50px);
+  top: calc(21% - 80px);
   left: calc(40% - 75px);
   animation: pulsing-glow 1s infinite;
 }
  .reset-button {
   position: absolute;
-  top: calc(21% - 50px);
+  top: calc(21% - 80px);
   left: calc(52% - 15px);
   animation: pulsing-glow 1s infinite;
 }
- @media (max-width: 768px) {
+ /* Style for smaller screens */
+@media (max-width: 768px) {
   .grid-cell img {
     width: 50%;
     height: auto;
   }
-   .header,
+   /* Position elements for smaller screens */
+  .header,
   .start-button,
   .reset-button,
   .timer,
   .score-board {
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     left: 10%;
   }
 }
- @keyframes pulsing-glow {
+ /* Animation for pulsing glow effect */
+@keyframes pulsing-glow {
   0% {
     text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
   }
@@ -159,6 +169,7 @@ body {
     text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
   }
 }
- .pulsing-glow-text {
+ /* Style for elements with pulsing glow effect */
+.pulsing-glow-text {
   animation: pulsing-glow 2s infinite;
 }

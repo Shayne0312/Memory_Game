@@ -8,14 +8,20 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Domine&display=swap">
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
         <h1 class="pulsing-glow-text">Memory Game</h1>
     </div>
+     <!-- Timer -->
     <div class="timer">Timer: <span id="timer">0</span></div>
+     <!-- Scoreboard -->
     <div class="score-board">Highest: <span id="high-score">0</span></div>
+     <!-- Start and Reset buttons -->
     <button class="start-button">Start</button>
     <button class="reset-button">Reset</button>
+     <!-- Grid container -->
     <div class="grid-container">
+        <!-- Grid cells -->
         <button class="grid-cell" id="cell1" data-framework="Image1">
             <div class="front">
                 <img src="unflipped/unflipped.jpg" alt="Image 1">
@@ -145,6 +151,6 @@
             </div>
         </button>
     </div>
-    <script src="app.js"></script>
+     <script src="app.js"></script>
 </body>
 </html>

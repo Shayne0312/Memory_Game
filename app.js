@@ -1,26 +1,32 @@
 document.addEventListener('DOMContentLoaded', (event) => {
+  // Get DOM elements
   const startButton = document.querySelector('.start-button');
   const resetButton = document.querySelector('.reset-button');
   const gridCells = document.querySelectorAll('.grid-cell');
   const timerElement = document.getElementById('timer');
   const highScoreElement = document.getElementById('high-score');
+   // Initialize variables
   let flippedCells = [];
   let isFlippingEnabled = false;
   let timerInterval;
   let timer = 0;
   let highScore = localStorage.getItem('highScore') || 0; // Get high score from local storage
+   // Function to flip a cell
   function flipCell(cell) {
     cell.classList.add('flip');
   }
+   // Function to unflip a cell
   function unflipCell(cell) {
     cell.classList.remove('flip');
   }
+   // Function to start the timer
   function startTimer() {
     timerInterval = setInterval(() => {
       timer++;
       timerElement.textContent = timer;
     }, 1000);
   }
+   // Function to stop the timer and update high score
   function stopTimer() {
     clearInterval(timerInterval);
     if (timer < highScore || highScore === 0) {
@@ -29,15 +35,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
       localStorage.setItem('highScore', highScore); // Store high score in local storage
     }
   }
+   // Event listener for reset button
   resetButton.addEventListener('click', () => {
     stopTimer();
     resetGame();
   });
+   // Event listener for start button
   startButton.addEventListener('click', () => {
     isFlippingEnabled = true;
     spawnCards();
     startTimer();
   });
+   // Event listener for grid cells
   gridCells.forEach((cell) => {
     cell.addEventListener('click', () => {
       if (isFlippingEnabled && !cell.classList.contains('flip') && flippedCells.length < 2) {
@@ -47,6 +56,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
     });
   });
+   // Function to spawn cards and assign images
   function spawnCards() {
     const images = [
       'flipped/image1.jpg',
@@ -73,6 +83,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       back.src = shuffledImages[index];
     });
   }
+   // Function to shuffle an array
   function shuffle(array) {
     let currentIndex = array.length;
     let temporaryValue, randomIndex;
@@ -85,6 +96,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
     return array;
   }
+   // Function to reset the game
   function resetGame() {
     flippedCells = [];
     gridCells.forEach((cell) => {
@@ -93,6 +105,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     timer = 0;
     timerElement.textContent = timer;
   }
+   // Function to check if flipped cells match
   function checkMatch() {
     if (flippedCells.length === 2) {
       const firstCell = flippedCells[0];
