@@ -1,0 +1,6 @@
+v 1.1
+
+Added comments to app.js, index.html, app.css
+Reworked scoreboard, was adding 1 too many
+Adjusted height of start and reset buttons
+
