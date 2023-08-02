@@ -1,0 +1,164 @@
+body {
+  background-image: url("background/neuron.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  margin-top: -30px;
+}
+ .header {
+  font-family: 'domine', 'serif';
+  text-align: center;
+  margin: 0;
+  font-size: 2rem;
+  color: #1155e6;
+  text-shadow: white 0px 2px 5px;
+}
+ .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding-top: 50px;
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+}
+ .grid-cell {
+  background-color: rgb(211, 205, 205);
+  padding: 10px;
+  width: calc(80% - 20px);
+  height: calc(100% - 20px);
+  border: 3px solid rgb(28, 28, 231);
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+ .grid-cell.flip {
+  transform: rotateY(180deg);
+}
+ .grid-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ .front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+ .front {
+  transform: rotateY(0deg);
+}
+ .back {
+  transform: rotateY(180deg);
+  object-fit: cover;
+}
+ .start-button,
+.reset-button {
+  font-family: 'domine', 'serif';
+  display: inline-block;
+  padding: 12px 36px;
+  background-color: #1155e6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 30px;
+  box-shadow: white 2px 2px 5px;
+  transform: scale(1.0);
+}
+ .start-button {
+  margin-right: 10px;
+}
+ .reset-button {
+  margin-left: 10px;
+}
+ .timer,
+#timer {
+  font-family: 'domine', 'serif';
+  border-radius: 10px 100px / 120px;
+  background-color: #1155e6;
+  font-size: 24px;
+  color: white;
+  animation: pulsing-glow 1s infinite;
+}
+ .score-board,
+#highscore {
+  font-family: 'domine', 'serif';
+  border-radius: 10px 100px / 120px;
+  background-color: #1155e6;
+  color: white;
+  font-size: 24px;
+  animation: pulsing-glow 1s infinite;
+}
+ .timer {
+  position: absolute;
+  top: calc(21% - 40px);
+  right: calc(75% - -30px);
+}
+ .score-board {
+  position: absolute;
+  top: calc(21% - 40px);
+  right: 16%;
+}
+ .start-button {
+  position: absolute;
+  top: calc(21% - 50px);
+  left: calc(40% - 75px);
+  animation: pulsing-glow 1s infinite;
+}
+ .reset-button {
+  position: absolute;
+  top: calc(21% - 50px);
+  left: calc(52% - 15px);
+  animation: pulsing-glow 1s infinite;
+}
+ @media (max-width: 768px) {
+  .grid-cell img {
+    width: 50%;
+    height: auto;
+  }
+   .header,
+  .start-button,
+  .reset-button,
+  .timer,
+  .score-board {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+  }
+}
+ @keyframes pulsing-glow {
+  0% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+}
+ .pulsing-glow-text {
+  animation: pulsing-glow 2s infinite;
+}
